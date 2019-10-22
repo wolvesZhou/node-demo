@@ -1,19 +1,29 @@
-console.log('hello world');
+module.exports = function (playerAction) {
+  const number = Math.random() * 3;
+  let computerAction;
 
-exports.hello = 'world';
+  if (number < 1) {
+    computerAction = 'rock';
+  } else if (number > 1) {
+    computerAction = 'scissor';
+  } else {
+    computerAction = 'paper';
+  }
 
-exports.add = function add(a, b) {
-  return a + b;
+  if (playerAction === computerAction) {
+    console.log('draw');
+    return 0;
+  } else if (
+    (playerAction === 'rock' && computerAction === 'scissor') ||
+    (playerAction === 'scissor' && computerAction === 'paper') ||
+    (playerAction === 'paper' && computerAction === 'rock')
+  ) {
+    console.log('You win');
+    return 1;
+  } else {
+    console.log('You lose')
+    return -1;
+  }
 }
 
-exports.obj = {
-  hello: 'world'
-}
 
-module.exports = function minus(a, b) {
-  return a - b;
-}
-
-setTimeout(() => {
-  console.log(exports);
-}, 1000);

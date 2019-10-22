@@ -1,4 +1,4 @@
-const playerAction = process.argv(process.argv.length - 1);
+const playerAction = process.argv[process.argv.length - 1];
 const number = Math.random() * 3;
 let computerAction;
 
